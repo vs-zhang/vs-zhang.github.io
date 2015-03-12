@@ -3,18 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Angular on Rails(Part II) | VZhang&#39;s Blog</title>
+  <title>Codeship | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="Nowaday, all the code should be tested before shipped. But we are all human being, we make mistakes. Sometime you are thinking just one line of code, not a big deal, just push it. Unfortunately, tha">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular on Rails(Part II)">
-<meta property="og:url" content="http://vs-zhang.github.io/2015/01/12/angular-on-rails-2/">
+<meta property="og:title" content="Codeship">
+<meta property="og:url" content="http://vs-zhang.github.io/2015/02/12/codeship/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description">
-<meta property="og:image" content="https://36.media.tumblr.com/f3db51b38c8d9ba44edf7b15d2dfc4d5/tumblr_nl47qeEnQY1unxngeo1_540.png">
+<meta property="og:description" content="Nowaday, all the code should be tested before shipped. But we are all human being, we make mistakes. Sometime you are thinking just one line of code, not a big deal, just push it. Unfortunately, tha">
+<meta property="og:image" content="https://40.media.tumblr.com/b287700135e7f5c1117bd7f02c20ede3/tumblr_nl49r7m2jM1unxngeo1_540.png">
+<meta property="og:image" content="https://41.media.tumblr.com/1b19931164e4185f26aa8013a1c483ae/tumblr_nl49x8iV7U1unxngeo1_540.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular on Rails(Part II)">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Codeship">
+<meta name="twitter:description" content="Nowaday, all the code should be tested before shipped. But we are all human being, we make mistakes. Sometime you are thinking just one line of code, not a big deal, just push it. Unfortunately, tha">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -167,11 +168,11 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-angular-on-rails-2" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-codeship" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/01/12/angular-on-rails-2/" class="article-date">
-  	<time datetime="2015-01-12T19:55:04.000Z" itemprop="datePublished">Jan 12 2015</time>
+      <a href="/2015/02/12/codeship/" class="article-date">
+  	<time datetime="2015-02-12T20:47:50.000Z" itemprop="datePublished">Feb 12 2015</time>
 </a>
     </div>
   
@@ -184,7 +185,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Angular on Rails(Part II)
+      Codeship
     </h1>
   
 
@@ -193,7 +194,7 @@
       <div class="article-info">
         
 	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/angular/">angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rails/">rails</a></li></ul>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CI/">CI</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Test/">Test</a></li></ul>
 	</div>
 
         
@@ -204,7 +205,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <div style="text-align:center" markdown="1"><br><img src="https://36.media.tumblr.com/f3db51b38c8d9ba44edf7b15d2dfc4d5/tumblr_nl47qeEnQY1unxngeo1_540.png" alt="angular+rails"><br></div>
+        <div style="text-align:center" markdown="1"><br><img src="https://40.media.tumblr.com/b287700135e7f5c1117bd7f02c20ede3/tumblr_nl49r7m2jM1unxngeo1_540.png" alt="codeship logo"><br></div>
+
+<p>Nowaday, all the code should be tested before shipped. But we are all human being, we make mistakes. Sometime you are thinking just one line of code, not a big deal, just push it. Unfortunately, that line of code cause errors. So, we need something to automate test our codes after we pushed it to verify our code pass all the test case or not. That’s why CI introduced. </p>
+<p>And for CI, in my option, there are two kinds right now, one is Jenkins with docker(more manual) and one is Codeship/travis-ci(more automated). </p>
+<a id="more"></a>
+
+<h4 id="1)_Jenkins_with_docker">1) Jenkins with docker</h4>
+<p><div style="text-align:center" markdown="1"><br><img src="https://41.media.tumblr.com/1b19931164e4185f26aa8013a1c483ae/tumblr_nl49x8iV7U1unxngeo1_540.png" alt="Jenkin Docker"><br></div><br>If the project is big and need more security, Jenkins and docker is the choose. Since it’s all configured by yourself. It did not require you to grant all github permissions. But that requires a lot of configuration to make Jenkins and docker work properly. </p>
+<p>But if you are interesting about Jenkins with docker, here’s a great <a href="https://zapier.com/engineering/continuous-integration-jenkins-docker-github/" target="_blank" rel="external">post</a>.</p>
+<h4 id="2)_Codeship/Travis-ci">2) Codeship/Travis-ci</h4>
+<p>So, if your project is small/open source, Codeship/Travis-ci is the way to go. Because </p>
+
         
       
     </div>
@@ -214,18 +226,9 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/02/12/codeship/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Codeship
-        
-      </div>
-    </a>
   
-  
-    <a href="/2014/12/10/Angular-on-Rails/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Angular on Rails(Part I)</div>
+    <a href="/2015/01/12/angular-on-rails-2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Angular on Rails(Part II)</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
