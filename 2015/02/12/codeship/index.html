@@ -13,6 +13,8 @@
 <meta property="og:description" content="Nowaday, all the code should be tested before shipped. But we are all human being, we make mistakes. Sometime you are thinking just one line of code, not a big deal, just push it. Unfortunately, tha">
 <meta property="og:image" content="https://40.media.tumblr.com/b287700135e7f5c1117bd7f02c20ede3/tumblr_nl49r7m2jM1unxngeo1_540.png">
 <meta property="og:image" content="https://41.media.tumblr.com/1b19931164e4185f26aa8013a1c483ae/tumblr_nl49x8iV7U1unxngeo1_540.png">
+<meta property="og:image" content="https://33.media.tumblr.com/a3e8b13ffd2fcbe656c15f3790ab356b/tumblr_njyd1fn4rs1unxngeo1_75sq.gif">
+<meta property="og:image" content="https://40.media.tumblr.com/a4057a9d665b99e7ed0ae7b52ed104aa/tumblr_nlf1inh3Xs1unxngeo1_1280.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Codeship">
 <meta name="twitter:description" content="Nowaday, all the code should be tested before shipped. But we are all human being, we make mistakes. Sometime you are thinking just one line of code, not a big deal, just push it. Unfortunately, tha">
@@ -212,10 +214,13 @@
 <a id="more"></a>
 
 <h4 id="1)_Jenkins_with_docker">1) Jenkins with docker</h4>
-<p><div style="text-align:center" markdown="1"><br><img src="https://41.media.tumblr.com/1b19931164e4185f26aa8013a1c483ae/tumblr_nl49x8iV7U1unxngeo1_540.png" alt="Jenkin Docker"><br></div><br>If the project is big and need more security, Jenkins and docker is the choose. Since it’s all configured by yourself. It did not require you to grant all github permissions. But that requires a lot of configuration to make Jenkins and docker work properly. </p>
+<p><div style="text-align:center" markdown="1"><br><img src="https://41.media.tumblr.com/1b19931164e4185f26aa8013a1c483ae/tumblr_nl49x8iV7U1unxngeo1_540.png" alt="Jenkin Docker"><br></div><br>If the project is big and need more security, Jenkins and docker is the choose. Since it’s all configured by yourself. It did not require you to grant all github permissions. But that requires a lot of configuration to make Jenkins and docker work properly. And you have to troubleshoot all the issue by yourself. Normally, it need a release engineer in the team to deal with all those configuration. </p>
 <p>But if you are interesting about Jenkins with docker, here’s a great <a href="https://zapier.com/engineering/continuous-integration-jenkins-docker-github/" target="_blank" rel="external">post</a>.</p>
 <h4 id="2)_Codeship/Travis-ci">2) Codeship/Travis-ci</h4>
-<p>So, if your project is small/open source, Codeship/Travis-ci is the way to go. Because </p>
+<p>So, if your project is small/open source, Codeship/Travis-ci is the way to go. Because it’s easy to setup and it will work flawless as the project grow. </p>
+<p>And if your project is open-source, travis-ci is a great tool. Otherwise it will charge 129/mo. So that’s why <a href="http://www.codeship.io" target="_blank" rel="external">Codeship</a> is great for small start-up/personal side project, it’s free(100 builds/mo), and it integrate with Heroku and AWS. What you need to do is try to connect with github, and find your Heroku API key. Then everytime when you push to github master, it will run all the test case for you and if all test case passed, it will deploy to heroku. No more configure headache.</p>
+<p>Happy CI testing!<br><img src="https://33.media.tumblr.com/a3e8b13ffd2fcbe656c15f3790ab356b/tumblr_njyd1fn4rs1unxngeo1_75sq.gif" alt="work hard"></p>
+<p><img src="https://40.media.tumblr.com/a4057a9d665b99e7ed0ae7b52ed104aa/tumblr_nlf1inh3Xs1unxngeo1_1280.png" alt="codeship result"></p>
 
         
       
