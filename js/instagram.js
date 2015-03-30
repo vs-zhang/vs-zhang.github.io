@@ -56,8 +56,10 @@ var Instagram = (function(){
 			var d = new Date(data[i].created_time*1000);
 			var y = d.getFullYear();
 			var m = d.getMonth()+1;
-			var src = replacer(data[i].images.low_resolution.url);
-			var bigSrc = replacer(data[i].images.standard_resolution.url);
+//			var src = replacer(data[i].images.low_resolution.url);
+			var src = data[i].images.low_resolution.url;
+//			var bigSrc = replacer(data[i].images.standard_resolution.url);
+			var bigSrc = data[i].images.standard_resolution.url;
 			var text = data[i].caption.text;
 			var key = y+"-"+m;
 			if(imgObj[key]){
@@ -78,7 +80,7 @@ var Instagram = (function(){
 	}
 
 	var getList = function(url){
-		$(".open-ins").html("图片来自instagram，正在加载中…");
+		$(".open-ins").html("Photos from instagram，loading…");
 		$.ajax({
 			url: url,
 			type:"GET",
@@ -90,7 +92,7 @@ var Instagram = (function(){
 					if(next){
 						getList(next);
 					}else{
-						$(".open-ins").html("图片来自instagram，点此访问");
+						$(".open-ins").html("Photos from instagram.");
 						ctrler(_collection);
 					}
 				}else{
