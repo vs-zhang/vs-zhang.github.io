@@ -3,18 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Angular on Rails(Part I) | VZhang&#39;s Blog</title>
+  <title>Angular on Rails - Basic Setup and Deploy | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="How to setup Angular with Rails
+There are a lot of way you can integrate Angular with Rails, a common way is put Angular inside the Asset pipeline. It’s easy to integrate that way but the code base">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Angular on Rails(Part I)">
+<meta property="og:title" content="Angular on Rails - Basic Setup and Deploy">
 <meta property="og:url" content="http://vs-zhang.github.io/2014/12/10/Angular-on-Rails/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description">
+<meta property="og:description" content="How to setup Angular with Rails
+There are a lot of way you can integrate Angular with Rails, a common way is put Angular inside the Asset pipeline. It’s easy to integrate that way but the code base">
 <meta property="og:image" content="https://36.media.tumblr.com/f3db51b38c8d9ba44edf7b15d2dfc4d5/tumblr_nl47qeEnQY1unxngeo1_540.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Angular on Rails(Part I)">
-<meta name="twitter:description">
+<meta name="twitter:title" content="Angular on Rails - Basic Setup and Deploy">
+<meta name="twitter:description" content="How to setup Angular with Rails
+There are a lot of way you can integrate Angular with Rails, a common way is put Angular inside the Asset pipeline. It’s easy to integrate that way but the code base">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -184,7 +187,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Angular on Rails(Part I)
+      Angular on Rails - Basic Setup and Deploy
     </h1>
   
 
@@ -205,6 +208,50 @@
     <div class="article-entry" itemprop="articleBody">
       
         <div style="text-align:center" markdown="1"><br><img src="https://36.media.tumblr.com/f3db51b38c8d9ba44edf7b15d2dfc4d5/tumblr_nl47qeEnQY1unxngeo1_540.png" alt="angular+rails"><br></div>
+
+<h1 id="How_to_setup_Angular_with_Rails">How to setup Angular with Rails</h1>
+<p>There are a lot of way you can integrate Angular with Rails, a common way is put Angular inside the Asset pipeline. It’s easy to integrate that way but the code base is quite mess at the later point. Recently, I found a way to use Yeomen generator and rails-api to work as front-end and back-end together.<br>Here’s some Pros and Cons for this way:</p>
+<h5 id="Pros:">Pros:</h5>
+<ul>
+<li>Separate struct and codebase for front-end and back-end</li>
+<li>Get rid of unused rails component like erb view template </li>
+<li>No more need to fresh for front-end change</li>
+</ul>
+<h5 id="Cons:">Cons:</h5>
+<ul>
+<li>have to deal with csrf token </li>
+<li>need to setup the proxy</li>
+<li>hard to deploy </li>
+</ul>
+<a id="more"></a>
+
+<h2 id="Back-end_Part">Back-end Part</h2>
+<h4 id="1-_Install_Rails-api">1. Install Rails-api</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem <span class="operator"><span class="keyword">install</span> rails-api</span></div></pre></td></tr></table></figure>
+
+<h4 id="2-_Use_rails-api_to_generate_a_app">2. Use rails-api to generate a app</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rails-api my_app</div></pre></td></tr></table></figure>
+
+<h4 id="3-_Get_into_the_project_directory-">3. Get into the project directory.</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">cd</span> my_app</div></pre></td></tr></table></figure>
+
+<h4 id="4-_Setup_the_Database/Rspec">4. Setup the Database/Rspec</h4>
+<p>After you use rails-api to set up the back-end, the back-end part is done. But if you want to user other kind of database or test framwork, you can set it up by yourself, just like a normal rails app. </p>
+<h2 id="Front-end_Part">Front-end Part</h2>
+<p>The front end will be using <a href="http://yeoman.io/" target="_blank" rel="external">Yeoman</a>, a great front-end tool. So we need npm to install yeoman, if you dont have npm installed in your machine, in mac osx <code>brew install npm</code>.</p>
+<h4 id="5-_Install_Yeoman_and_Generator-angular">5. Install Yeoman and Generator-angular</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> -g yo</span></div><div class="line">npm <span class="keyword">install</span> -g generator-angular</div></pre></td></tr></table></figure>
+
+<h4 id="6-_Make_a_client_file_to_let_client-code_live_(but_you_can_call_what_ever_you_want)">6. Make a client file to let client-code live (but you can call what ever you want)</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">make</span> client</div><div class="line"><span class="keyword">cd</span> client</div></pre></td></tr></table></figure>
+
+<h4 id="7-_Generator_the_yeoman_app">7. Generator the yeoman app</h4>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">yo</span> angular my_app</div></pre></td></tr></table></figure>
+
+<p>And after a lot of npm console output, your client app is good to go. Right now you can use <code>grunt serve</code> to make the yeoman app runing.</p>
+<p>But you will find out it’s not the thing you want. Since it’s not communicate properly right now with the back-end. OK, let’s make them talk.</p>
+<h2 id="Connect_the_Front-end_and_back-end">Connect the Front-end and back-end</h2>
+<p>As you know, the yeoman app is listen for port 9000, and Rails is listen for port 3000(default), so we have to let the angular app call port 3000 when </p>
 
         
       

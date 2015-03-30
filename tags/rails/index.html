@@ -243,7 +243,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/10/Angular-on-Rails/">Angular on Rails(Part I)</a>
+      <a class="article-title" href="/2014/12/10/Angular-on-Rails/">Angular on Rails - Basic Setup and Deploy</a>
     </h1>
   
 
@@ -254,13 +254,25 @@
       
         <div style="text-align:center" markdown="1"><br><img src="https://36.media.tumblr.com/f3db51b38c8d9ba44edf7b15d2dfc4d5/tumblr_nl47qeEnQY1unxngeo1_540.png" alt="angular+rails"><br></div>
 
-        
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
+<h1 id="How_to_setup_Angular_with_Rails">How to setup Angular with Rails</h1>
+<p>There are a lot of way you can integrate Angular with Rails, a common way is put Angular inside the Asset pipeline. It’s easy to integrate that way but the code base is quite mess at the later point. Recently, I found a way to use Yeomen generator and rails-api to work as front-end and back-end together.<br>Here’s some Pros and Cons for this way:</p>
+<h5 id="Pros:">Pros:</h5>
+<ul>
+<li>Separate struct and codebase for front-end and back-end</li>
+<li>Get rid of unused rails component like erb view template </li>
+<li>No more need to fresh for front-end change</li>
+</ul>
+<h5 id="Cons:">Cons:</h5>
+<ul>
+<li>have to deal with csrf token </li>
+<li>need to setup the proxy</li>
+<li>hard to deploy </li>
+</ul>
+
+        <hr/>
+        <p class="article-more-link">
+          <a  href="/2014/12/10/Angular-on-Rails/#more">more >></a>
+        </p>
       
     </div>
     
