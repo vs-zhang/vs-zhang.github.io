@@ -112,7 +112,7 @@ There are a lot of way you can integrate Angular with Rails, a common way is put
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/-Test-TDD/" style="font-size: 10.00px;">-Test -TDD</a><a href="/tags/-Test-TDD/" style="font-size: 10.00px;">-Test, -TDD</a><a href="/tags/CI/" style="font-size: 15.00px;">CI</a><a href="/tags/Data/" style="font-size: 15.00px;">Data</a><a href="/tags/JK/" style="font-size: 20.00px;">JK</a><a href="/tags/Projects/" style="font-size: 15.00px;">Projects</a><a href="/tags/TDD/" style="font-size: 15.00px;">TDD</a><a href="/tags/Test/" style="font-size: 20.00px;">Test</a><a href="/tags/Test-TDD/" style="font-size: 10.00px;">Test TDD</a><a href="/tags/Test-TDD/" style="font-size: 10.00px;">Test, TDD</a><a href="/tags/angular/" style="font-size: 20.00px;">angular</a><a href="/tags/hexo/" style="font-size: 15.00px;">hexo</a><a href="/tags/rails/" style="font-size: 20.00px;">rails</a>
+						<a href="/tags/-Test-TDD/" style="font-size: 10.00px;">-Test -TDD</a><a href="/tags/-Test-TDD/" style="font-size: 10.00px;">-Test, -TDD</a><a href="/tags/BDD/" style="font-size: 13.33px;">BDD</a><a href="/tags/CI/" style="font-size: 13.33px;">CI</a><a href="/tags/Capybara/" style="font-size: 13.33px;">Capybara</a><a href="/tags/Data/" style="font-size: 13.33px;">Data</a><a href="/tags/JK/" style="font-size: 16.67px;">JK</a><a href="/tags/Projects/" style="font-size: 13.33px;">Projects</a><a href="/tags/TDD/" style="font-size: 13.33px;">TDD</a><a href="/tags/Test/" style="font-size: 20.00px;">Test</a><a href="/tags/Test-TDD/" style="font-size: 10.00px;">Test TDD</a><a href="/tags/Test-TDD/" style="font-size: 10.00px;">Test, TDD</a><a href="/tags/angular/" style="font-size: 16.67px;">angular</a><a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a><a href="/tags/rails/" style="font-size: 16.67px;">rails</a>
 					</div>
 				</section>
 				
@@ -227,9 +227,9 @@ There are a lot of way you can integrate Angular with Rails, a common way is put
 <li>need to setup the proxy</li>
 <li>hard to deploy </li>
 </ul>
-<a id="more"></a>
-
+<p><a id="more"></a><br><br></p>
 <h2 id="Back-end_Part">Back-end Part</h2>
+<p><br></p>
 <h4 id="1-_Install_Rails-api">1. Install Rails-api</h4>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gem <span class="operator"><span class="keyword">install</span> rails-api</span></div></pre></td></tr></table></figure>
 
@@ -241,21 +241,42 @@ There are a lot of way you can integrate Angular with Rails, a common way is put
 
 <h4 id="4-_Setup_the_Database/Rspec">4. Setup the Database/Rspec</h4>
 <p>After you use rails-api to set up the back-end, the back-end part is done. But if you want to user other kind of database or test framwork, you can set it up by yourself, just like a normal rails app. </p>
+<p><br></p>
 <h2 id="Front-end_Part">Front-end Part</h2>
 <p>The front end will be using <a href="http://yeoman.io/" target="_blank" rel="external">Yeoman</a>, a great front-end tool. So we need npm to install yeoman, if you dont have npm installed in your machine, in mac osx <code>brew install npm</code>.</p>
 <h4 id="5-_Install_Yeoman_and_Generator-angular">5. Install Yeoman and Generator-angular</h4>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm <span class="operator"><span class="keyword">install</span> -g yo</span></div><div class="line">npm <span class="keyword">install</span> -g generator-angular</div></pre></td></tr></table></figure>
 
 <h4 id="6-_Make_a_client_file_to_let_client-code_live_(but_you_can_call_what_ever_you_want)">6. Make a client file to let client-code live (but you can call what ever you want)</h4>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">make</span> client</div><div class="line"><span class="keyword">cd</span> client</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">mkdir</span> client</div><div class="line"><span class="keyword">cd</span> client</div></pre></td></tr></table></figure>
 
 <h4 id="7-_Generator_the_yeoman_app">7. Generator the yeoman app</h4>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="title">yo</span> angular my_app</div></pre></td></tr></table></figure>
 
 <p>And after a lot of npm console output, your client app is good to go. Right now you can use <code>grunt serve</code> to make the yeoman app runing.</p>
 <p>But you will find out it’s not the thing you want. Since it’s not communicate properly right now with the back-end. OK, let’s make them talk.</p>
+<p><br></p>
 <h2 id="Connect_the_Front-end_and_back-end">Connect the Front-end and back-end</h2>
-<p>As you know, the yeoman app is listen for port 9000, and Rails is listen for port 3000(default), so we have to let the angular app(port 9000) call Rails app (port 3000). So what’s going on right now. What’s going on finally</p>
+<p><br></p>
+<h4 id="8-_Make_Front-End_public_file">8. Make Front-End public file</h4>
+<p>As you know, yeoman app dist is #{Rails.root}/client/dist, and Rails front-end is in #{Rails.root}/public. </p>
+<p>So first of all, we need to set the grunt dist file to the Rails Public file.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// Configurable paths for the application</span></div><div class="line"><span class="keyword">var</span> appConfig = {</div><div class="line">  app: <span class="built_in">require</span>(<span class="string">'./bower.json'</span>).appPath || <span class="string">'app'</span>,</div><div class="line">  dist: <span class="string">'../public'</span></div><div class="line">};</div></pre></td></tr></table></figure>
+
+<p>But when you try to do a <code>grunt build</code> it will show the warning: <span style="color: blue"> Warning: Cannot delete files outside the current working directory. Use —force to continue.</span></p>
+<p>So, after some search, I found a npm plugin called grunt-force. Install grunt-force first by npm install —save, then before your egisterTask, add this line <code>grunt.loadNpmTasks(&#39;grunt-force&#39;);</code> Then on the build task setup, add a <code>&#39;force:on&#39;</code>. So your build task is something like<br><br></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">grunt.registerTask(<span class="attribute">'build</span>', [</div><div class="line">   <span class="attribute">'force</span>:<span class="keyword">on</span>',</div><div class="line">   (the rest <span class="keyword">of</span> your build task)</div><div class="line"> ]);</div></pre></td></tr></table></figure>
+
+<p>If your still get a warning about <span style="color: red">compass</span>, just try <span style="color: red"><code>gem install compass</code></span></p>
+<p><br></p>
+<h4 id="9-_Setting_up_a_proxy_9000_-&gt;_3000">9. Setting up a proxy 9000 -&gt; 3000</h4>
+<p>Then the yeoman app is listen for port 9000, and Rails is listen for port 3000(default), so we have to let the angular app(port 9000) call Rails app (port 3000). So we need to make the yeoman app know to call port 3000 when 9000 is called.</p>
+<p>There’s a plugin called grunt-connect-proxy. <code>npm install --save grunt-connect-proxy</code></p>
+<p>Then go back to your grunt file#connect</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">connect: {</div><div class="line">      options: {</div><div class="line">        port: 9000,</div><div class="line">        hostname: 'localhost',  # <span class="operator"><span class="keyword">Change</span> this <span class="keyword">to</span> your <span class="keyword">server</span> IP</span></div><div class="line">        livereload: <span class="number">35729</span></div><div class="line">      },</div><div class="line">      proxies: [{</div><div class="line">        context: <span class="string">'/api'</span>,        # <span class="keyword">all</span> the API <span class="keyword">call</span> will be under localhost:<span class="number">3000</span>/api</div><div class="line">        host: <span class="string">'localhost'</span>,</div><div class="line">        port: <span class="number">3000</span>              # Your Rails port <span class="built_in">number</span></div><div class="line">      }],</div><div class="line">      (rest <span class="keyword">of</span> the setting)</div><div class="line">      }</div></pre></td></tr></table></figure>
+
+
+<p> OK, you’re good to go. Now when you’re calling localhost:9000/api/users/1, it will automatic get direct to localhost:3000/api/users/1. Then we make the frond-end and back-end can work together. The next big problem is deployment and make the authentication working. Please check for the part II for that.</p>
 
         
       
