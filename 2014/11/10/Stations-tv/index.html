@@ -5,17 +5,21 @@
   
   <title>Stations.tv | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Recently I joined a project called Stations. The idea is simple, let people hang out online, let people chat and watch online videos at the same time.">
+  <meta name="description" content="Recently I joined a project called Stations. The idea is simple, let people hang out online, let people chat and watch online videos at the same time. 
+The technical stack includes Rails 4, Backbone w">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Stations.tv">
 <meta property="og:url" content="http://vs-zhang.github.io/2014/11/10/Stations-tv/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description" content="Recently I joined a project called Stations. The idea is simple, let people hang out online, let people chat and watch online videos at the same time.">
+<meta property="og:description" content="Recently I joined a project called Stations. The idea is simple, let people hang out online, let people chat and watch online videos at the same time. 
+The technical stack includes Rails 4, Backbone w">
 <meta property="og:image" content="https://41.media.tumblr.com/4b30f0811537472fd1882e826f6f1a62/tumblr_nl460jvpM01unxngeo1_1280.png">
 <meta property="og:image" content="https://40.media.tumblr.com/2dbcd13036b349602a2cc8eac681bd1b/tumblr_nl46rtTnGN1unxngeo1_1280.png">
+<meta property="og:image" content="https://41.media.tumblr.com/d073e01b2bc22697ed1fa57fa6bb767b/tumblr_nmekzs5k3T1unxngeo1_1280.png">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Stations.tv">
-<meta name="twitter:description" content="Recently I joined a project called Stations. The idea is simple, let people hang out online, let people chat and watch online videos at the same time.">
+<meta name="twitter:description" content="Recently I joined a project called Stations. The idea is simple, let people hang out online, let people chat and watch online videos at the same time. 
+The technical stack includes Rails 4, Backbone w">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -210,9 +214,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Recently I joined a project called <a href="http://stations.tv" target="_blank" rel="external">Stations</a>. The idea is simple, let people hang out online, let people chat and watch online videos at the same time. </p>
-<p><img src="https://41.media.tumblr.com/4b30f0811537472fd1882e826f6f1a62/tumblr_nl460jvpM01unxngeo1_1280.png" alt="stations.tv Homepage"><br><a id="more"></a></p>
+<p>The technical stack includes Rails 4, Backbone with marionette, RSpec, capybara, Haml, Sass and mongodb. We use Heroku for hosting (love those plugins) and S3 for the image server. Oh, and we used codeship (a cambridge startup) for the CI. It’s a great tool, and it’s free for under 100 builds/month. (But recently found out circle ci is free for 1 concurrent builds with 1 containers and 1 parallelism.)</p>
+<p>The app is almost SPA except the sign in and sign up. It use devise to handle those. It use PubNub for the broadcast (not using socket.io since only 3 engineers in the team.) Basiclly, when user signed in , they will subscribe to their joined stations, 1:1 messages and his own user channel. Then if other users do something relate to real time, the PubNub will publish a message to that channel, and the UI will change based on that. </p>
+<p>Oh, pubnub what a great tool, it save a lot of effect to make the app works realtime. I think that’s $49 a month, worth every penny.</p>
 <h3 id="updated_station_views_(march_2015)">updated station views (march 2015)</h3>
+<h4 id="Home_page">Home page</h4>
+<p><img src="https://41.media.tumblr.com/4b30f0811537472fd1882e826f6f1a62/tumblr_nl460jvpM01unxngeo1_1280.png" alt="stations.tv Homepage"><br><a id="more"></a></p>
+<p><br></p>
+<h4 id="Station_page">Station page</h4>
 <p><img src="https://40.media.tumblr.com/2dbcd13036b349602a2cc8eac681bd1b/tumblr_nl46rtTnGN1unxngeo1_1280.png" alt="stations.tv main station"></p>
+<p><br></p>
+<h4 id="Sign_in_page">Sign in page</h4>
+<p><img src="https://41.media.tumblr.com/d073e01b2bc22697ed1fa57fa6bb767b/tumblr_nmekzs5k3T1unxngeo1_1280.png" alt="stations.tv sign in page"></p>
 
         
       
