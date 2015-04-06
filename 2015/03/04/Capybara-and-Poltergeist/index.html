@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Capybara and Poltergeist with RSpec | VZhang&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Cap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Capybara and Poltergeist with RSpec">
+<meta property="og:url" content="http://vs-zhang.github.io/2015/03/04/Capybara-and-Poltergeist/">
+<meta property="og:site_name" content="VZhang's Blog">
+<meta property="og:description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Cap">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Capybara and Poltergeist with RSpec">
+<meta name="twitter:description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Cap">
+
+  
+    <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="https://41.media.tumblr.com/7ecbe0601ffcbc667bb04b4e2829acf3/tumblr_nl47z2ytqQ1unxngeo1_500.jpg">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+
+  <script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="https://avatars0.githubusercontent.com/u/3893244?v=3&amp;amp;s=460">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Vincent Zhang</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">Tech &amp;&amp; Learn &amp;&amp; Fun</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menus</li>
+						<li>Tags</li>
+						
+						
+						<li>About me</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">Home</a></li>
+				        
+							<li><a href="/archives">All Blogs</a></li>
+				        
+							<li><a href="/instagram">Photos</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/vs-zhang" title="github">github</a>
+					        
+								<a class="linkedin" target="_blank" href="https://www.linkedin.com/pub/vincent-zhang/76/b99/219/en" title="linkedin">linkedin</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/-Test-TDD/" style="font-size: 10.00px;">-Test -TDD</a><a href="/tags/-Test-TDD/" style="font-size: 10.00px;">-Test, -TDD</a><a href="/tags/BDD/" style="font-size: 13.33px;">BDD</a><a href="/tags/CI/" style="font-size: 13.33px;">CI</a><a href="/tags/Capybara/" style="font-size: 13.33px;">Capybara</a><a href="/tags/Data/" style="font-size: 13.33px;">Data</a><a href="/tags/JK/" style="font-size: 16.67px;">JK</a><a href="/tags/Projects/" style="font-size: 13.33px;">Projects</a><a href="/tags/TDD/" style="font-size: 13.33px;">TDD</a><a href="/tags/Test/" style="font-size: 20.00px;">Test</a><a href="/tags/Test-TDD/" style="font-size: 10.00px;">Test TDD</a><a href="/tags/Test-TDD/" style="font-size: 10.00px;">Test, TDD</a><a href="/tags/angular/" style="font-size: 16.67px;">angular</a><a href="/tags/hexo/" style="font-size: 13.33px;">hexo</a><a href="/tags/rails/" style="font-size: 16.67px;">rails</a>
+					</div>
+				</section>
+				
+				
+				
+
+				
+				
+				<section class="switch-part switch-part3">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Vincent Zhang</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="https://avatars0.githubusercontent.com/u/3893244?v=3&amp;amp;s=460">
+				<hgroup>
+				  <h1 class="header-author">Vincent Zhang</h1>
+				</hgroup>
+			</div>
+			
+			<p class="header-subtitle">Tech &amp;&amp; Learn &amp;&amp; Fun</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">Home</a></li>
+		        
+					<li><a href="/archives">All Blogs</a></li>
+		        
+					<li><a href="/instagram">Photos</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/vs-zhang" title="github">github</a>
+			        
+						<a class="linkedin" target="_blank" href="https://www.linkedin.com/pub/vincent-zhang/76/b99/219/en" title="linkedin">linkedin</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Capybara-and-Poltergeist" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/04/Capybara-and-Poltergeist/" class="article-date">
+  	<time datetime="2015-03-04T20:49:33.000Z" itemprop="datePublished">Mar 4 2015</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Capybara and Poltergeist with RSpec
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/BDD/">BDD</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capybara/">Capybara</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Test/">Test</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Capybara and poltergeist with RSpec to solve this problem. It even can test your SPA and integrate with CI very nicely.  </p>
+<p><a href="https://github.com/teampoltergeist/poltergeist" target="_blank" rel="external">Poltergeist</a> is a driver for <a href="https://github.com/jnicklas/capybara" target="_blank" rel="external">Capybara</a>. It allows you to run your Capybara tests on a headless WebKit browser, provided by PhantomJS. So, what is headless? That means you don’t need to fire up your browser. What’s that mean? Fast!!</p>
+<ul>
+<li>Poltergeist is a wrapper for PhantomJS, so make sure your test env have that. If not <code>brew install phantomjs</code> in Mac.</li>
+</ul>
+<ul>
+<li>Travis CI and codeship has PhantomJS pre-installed.</li>
+</ul>
+<a id="more"></a>
+
+<p><br></p>
+<h3 id="1-_How_to_install_Capybara_and_Poltergeist_for_your_Rails_project">1. How to install Capybara and Poltergeist for your Rails project</h3>
+<p>Installation is really easy, you just need to install the gem capybara and poltergeist, put those lines in your Gemfile</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">group <span class="symbol">:test</span> <span class="keyword">do</span></div><div class="line">  gem <span class="string">'capybara'</span></div><div class="line">  gem <span class="string">'poltergeist'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p>Then run bundle install.</p>
+<h3 id="2-_Configure_Poltergeist">2. Configure Poltergeist</h3>
+<p>Then in your spec_helper.rb. add those lines</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">require</span> <span class="string">'capybara'</span></div><div class="line"><span class="keyword">require</span> <span class="string">'capybara/poltergeist'</span></div><div class="line"></div><div class="line"><span class="constant">Capybara</span>.default_driver = <span class="symbol">:poltergeist</span></div><div class="line"><span class="constant">Capybara</span>.javascript_driver = <span class="symbol">:poltergeist</span></div><div class="line"></div><div class="line"><span class="constant">Capybara</span>.register_driver <span class="symbol">:poltergeist</span> <span class="keyword">do</span> |app|</div><div class="line">  options = {<span class="symbol">:js_errors</span> =&gt; <span class="keyword">true</span>,</div><div class="line">             <span class="symbol">:timeout</span> =&gt; <span class="number">120</span>}</div><div class="line">  <span class="constant">Capybara::Poltergeist::Driver</span>.new(app, options)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p>In the options, you can configure poltergeist. etc, If your <span style="color: red">:js_errors</span> is false, then Javascript errors do not get re-raised in Ruby.<br>You can find all the setting options in <a href="https://github.com/teampoltergeist/poltergeist#customization" target="_blank" rel="external">poltergeist github page</a> </p>
+<h3 id="3-_Capybara_with_RSpec">3. Capybara with RSpec</h3>
+<p>If you are using Rails, put your Capybara specs in spec/features.</p>
+<p>If you are not using Rails, tag all the example groups in which you want to use Capybara with :type =&gt; :feature.</p>
+<p>You can now write your specs under spec/features/sign_in like so:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">describe <span class="string">"users signin process"</span> <span class="built_in">do</span></div><div class="line">  <span class="keyword">before</span> :<span class="keyword">each</span> <span class="built_in">do</span></div><div class="line">    User.make(:email =&gt; <span class="string">'user@example.com'</span>, :password =&gt; <span class="string">'password'</span>)</div><div class="line">  <span class="function"><span class="keyword">end</span></span></div><div class="line"></div><div class="line">  <span class="keyword">it</span> <span class="string">"signs the user in"</span> <span class="built_in">do</span></div><div class="line">    visit <span class="string">'/sessions/new'</span></div><div class="line">    <span class="operator">within</span>(<span class="string">"#session"</span>) <span class="built_in">do</span></div><div class="line">      fill_in <span class="string">'Email'</span>, :<span class="operator">with</span> =&gt; <span class="string">'user@example.com'</span></div><div class="line">      fill_in <span class="string">'Password'</span>, :<span class="operator">with</span> =&gt; <span class="string">'password'</span></div><div class="line">    <span class="function"><span class="keyword">end</span></span></div><div class="line">    click_button <span class="string">'Sign in'</span></div><div class="line">    expect(page).<span class="built_in">to</span> have_content <span class="string">'Success'</span></div><div class="line">  <span class="function"><span class="keyword">end</span></span></div><div class="line"><span class="function"><span class="keyword">end</span></span></div></pre></td></tr></table></figure>
+
+<p>As you can see, the syntax is more nice and clear, all you need to do is </p>
+<ol>
+<li><span style="color:red">fill_in</span> fields with data </li>
+<li><span style="color:red">click</span> button</li>
+<li><span style="color:red">expect</span> page have_content</li>
+</ol>
+<p>But sometime, you still find some trick problems like </p>
+<ul>
+<li>Could not find the field by fill_in, or how could i know the name of my field</li>
+<li>Could not fire the click_button because I use Javascript event to handle that</li>
+<li>Dont have the content for the Ajax call back</li>
+</ul>
+<p><br><br><span style="font-size: 16px; color: grey">Here’s some tips for that</span></p>
+<h4 id="*Could_not_find_the_field_by_fill_in/dont_know_the_name_of_my_field">*Could not find the field by fill_in/dont know the name of my field</h4>
+<p>Capybara fill_in use css selector as the main selector, so if your field class is user_email, you can easily use <code>fill_in &#39;user_email&#39;, with: &#39;user@example.com&#39;</code>   </p>
+<p><br></p>
+<h4 id="*Could_not_fire_the_click_button_because_I_use_Javascript_event_to_handle_that">*Could not fire the click_button because I use Javascript event to handle that</h4>
+<p>This is a trick one. But capybara can execute the javascript script, so you still can ask javascript to simulate the click event for you.<br>for example, if you want to trigger a keyup event for Enter for an input. </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keypress_script = <span class="string">"var e = $.Event('keyup', { keyCode: 13 }); <span class="variable">$('input.ui-autocomplete-input')</span>.trigger(e);"</span></div><div class="line">page.driver.execute_script(keypress_script)</div></pre></td></tr></table></figure>
+
+<p> As you can see, the script have two main part, one is the event, the other is the place need to trigger that event. You need to find the keycode (13 for enter) from the key you need to simulate, and the event name(keyup/keydown). And make that field trigger it.</p>
+<h4 id="*Dont_have_the_content_for_the_Ajax_call_back">*Dont have the content for the Ajax call back</h4>
+<p>Because you use ajax, and expect the page have your ajax return content. But capybara is not waiting for the ajax call. So you need to ask capybara wait for your ajax result by using sleep. You can try sleep 1 or 2 seconds. And then expect your page have that content. Thoughtbot have a nice write up about this, please check this <a href="https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara" target="_blank" rel="external">link</a></p>
+<h3 id="4-_Final_Tips:">4. Final Tips:</h3>
+<p>If you dont know what happen in the page, you always can debug with <code>save_and_open_page</code>. I am sure that will save your thousand of times.</p>
+
+        
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/02/12/codeship/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Codeship</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+<section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'tvzhang'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Vincent Zhang
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+
+<script src="/js/mobile.js" type="text/javascript"></script>
+
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<! -- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+
+  </div>
+</body>
+</html>

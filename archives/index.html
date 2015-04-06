@@ -175,8 +175,8 @@
     <article id="post-Capybara-and-Poltergeist" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/04/04/Capybara-and-Poltergeist/" class="article-date">
-  	<time datetime="2015-04-04T19:49:33.000Z" itemprop="datePublished">Apr 4 2015</time>
+      <a href="/2015/03/04/Capybara-and-Poltergeist/" class="article-date">
+  	<time datetime="2015-03-04T20:49:33.000Z" itemprop="datePublished">Mar 4 2015</time>
 </a>
     </div>
   
@@ -189,7 +189,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/04/04/Capybara-and-Poltergeist/">Capybara and Poltergeist</a>
+      <a class="article-title" href="/2015/03/04/Capybara-and-Poltergeist/">Capybara and Poltergeist with RSpec</a>
     </h1>
   
 
@@ -198,14 +198,19 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
-        
-          <!-- show an end symbol if the article is fully displayed -->
-          <hr/>
-          <p class="article-more-link">
-            <a>end</a>
-          </p>
-        
+        <p>I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Capybara and poltergeist with RSpec to solve this problem. It even can test your SPA and integrate with CI very nicely.  </p>
+<p><a href="https://github.com/teampoltergeist/poltergeist" target="_blank" rel="external">Poltergeist</a> is a driver for <a href="https://github.com/jnicklas/capybara" target="_blank" rel="external">Capybara</a>. It allows you to run your Capybara tests on a headless WebKit browser, provided by PhantomJS. So, what is headless? That means you don’t need to fire up your browser. What’s that mean? Fast!!</p>
+<ul>
+<li>Poltergeist is a wrapper for PhantomJS, so make sure your test env have that. If not <code>brew install phantomjs</code> in Mac.</li>
+</ul>
+<ul>
+<li>Travis CI and codeship has PhantomJS pre-installed.</li>
+</ul>
+
+        <hr/>
+        <p class="article-more-link">
+          <a  href="/2015/03/04/Capybara-and-Poltergeist/#more">more >></a>
+        </p>
       
     </div>
     
