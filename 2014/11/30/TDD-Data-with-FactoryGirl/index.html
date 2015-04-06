@@ -5,15 +5,15 @@
   
   <title>Data Association with FactoryGirl | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="A Developer on the Road">
+  <meta name="description" content="If you ever work with Rails and TDD, you may hear Factory girl: a great data mock gem to replace fixture. But sometime when your modal have some association with other modals, and that model have othe">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Data Association with FactoryGirl">
 <meta property="og:url" content="http://vs-zhang.github.io/2014/11/30/TDD-Data-with-FactoryGirl/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description" content="A Developer on the Road">
+<meta property="og:description" content="If you ever work with Rails and TDD, you may hear Factory girl: a great data mock gem to replace fixture. But sometime when your modal have some association with other modals, and that model have othe">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Data Association with FactoryGirl">
-<meta name="twitter:description" content="A Developer on the Road">
+<meta name="twitter:description" content="If you ever work with Rails and TDD, you may hear Factory girl: a great data mock gem to replace fixture. But sometime when your modal have some association with other modals, and that model have othe">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -207,7 +207,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>If you ever work with Rails and TDD, you may hear Factory girl: a great data mock gem to replace fixture. But sometime when your modal have some association with other modals, and that model have other associations, try to write a factory with callback (after build/create) become so hard. But thanks to thoughtbot, factory girl have data association build-in. You can read this <a href="https://github.com/brennovich/cheat-ruby-sheets/blob/master/factory_girl.md#associations" target="_blank" rel="external">post</a>.</p>
+<a id="more"></a>
+
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># If the factory name is the same as the association name, it's simple</span></div><div class="line">factory :<span class="built_in">post</span> <span class="built_in">do</span></div><div class="line">  author</div><div class="line"><span class="function"><span class="keyword">end</span></span></div></pre></td></tr></table></figure>
+
+<p>If your can FactoryGirl.create :post, that will create a post and a author associate to that. So in your rspec test, it’s easy to use them</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">let(:<span class="built_in">post</span>) {FactoryGirl.<span class="built_in">create</span>(:<span class="built_in">post</span>)}</div><div class="line">let(:author) {<span class="built_in">post</span>.author}</div></pre></td></tr></table></figure>
+
+<p><br></p>
+<h4 id="What’s_more?_I_found_out_it_work_with_mongoid_embed_documuntation_too-">What’s more? I found out it work with mongoid embed documuntation too.</h4>
+<p>For example, a playlist embed a list of videos, you can set this association the same way as relational database.</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">factory <span class="symbol">:video</span> <span class="keyword">do</span></div><div class="line">  title  <span class="string">'my lovely video 1'</span></div><div class="line">  url    <span class="string">'http://www.youtube.com/yiwbeyfa56'</span></div><div class="line">  playlist</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">factory <span class="symbol">:playlist</span> <span class="keyword">do</span></div><div class="line">  title   <span class="string">'my playlist 1'</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p>And FactoryGirl.create(:video) will create a playlist embed with one videos, etc</p>
+<figure class="highlight Json"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">playlist = {</div><div class="line">            title: 'my playlist 1',</div><div class="line">            [</div><div class="line">              { title : 'my lovely video 1', </div><div class="line">                url   : 'http://www.youtube.com/yiwbeyfa56'}</div><div class="line">            ]}</div></pre></td></tr></table></figure>
+
+
         
       
     </div>
