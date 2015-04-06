@@ -5,15 +5,16 @@
   
   <title>Capybara and Poltergeist with RSpec | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Cap">
+  <meta name="description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use C">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Capybara and Poltergeist with RSpec">
 <meta property="og:url" content="http://vs-zhang.github.io/2015/03/04/Capybara-and-Poltergeist/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Cap">
+<meta property="og:description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use C">
+<meta property="og:image" content="https://41.media.tumblr.com/2be357db35ee15c8bdf16954cc1a9996/tumblr_nme7yhWMii1unxngeo1_540.jpg">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Capybara and Poltergeist with RSpec">
-<meta name="twitter:description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Cap">
+<meta name="twitter:description" content="I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use C">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -207,7 +208,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Capybara and poltergeist with RSpec to solve this problem. It even can test your SPA and integrate with CI very nicely.  </p>
+        <div style="text-align:center" markdown="1"><br><img src="https://41.media.tumblr.com/2be357db35ee15c8bdf16954cc1a9996/tumblr_nme7yhWMii1unxngeo1_540.jpg" alt="capybara"><br></div>
+
+<p>I used to think cucumber for Rails is a little bit over kill for the developer. Because every time you have to write a lot of regular expression to work it out. But in the recently project, we use Capybara and poltergeist with RSpec to solve this problem. It even can test your SPA and integrate with CI very nicely.  </p>
 <p><a href="https://github.com/teampoltergeist/poltergeist" target="_blank" rel="external">Poltergeist</a> is a driver for <a href="https://github.com/jnicklas/capybara" target="_blank" rel="external">Capybara</a>. It allows you to run your Capybara tests on a headless WebKit browser, provided by PhantomJS. So, what is headless? That means you don’t need to fire up your browser. What’s that mean? Fast!!</p>
 <ul>
 <li>Poltergeist is a wrapper for PhantomJS, so make sure your test env have that. If not <code>brew install phantomjs</code> in Mac.</li>
@@ -254,9 +257,9 @@
 <p>This is a trick one. But capybara can execute the javascript script, so you still can ask javascript to simulate the click event for you.<br>for example, if you want to trigger a keyup event for Enter for an input. </p>
 <figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">keypress_script = <span class="string">"var e = $.Event('keyup', { keyCode: 13 }); <span class="variable">$('input.ui-autocomplete-input')</span>.trigger(e);"</span></div><div class="line">page.driver.execute_script(keypress_script)</div></pre></td></tr></table></figure>
 
-<p> As you can see, the script have two main part, one is the event, the other is the place need to trigger that event. You need to find the keycode (13 for enter) from the key you need to simulate, and the event name(keyup/keydown). And make that field trigger it.</p>
+<p> As you can see, the script have two main part, one is the event, the other is the place need to trigger that event. You need to find the keycode (13 for enter) from the key you need to simulate, and the event name(keyup/keydown). And make that field trigger it.<br> <br></p>
 <h4 id="*Dont_have_the_content_for_the_Ajax_call_back">*Dont have the content for the Ajax call back</h4>
-<p>Because you use ajax, and expect the page have your ajax return content. But capybara is not waiting for the ajax call. So you need to ask capybara wait for your ajax result by using sleep. You can try sleep 1 or 2 seconds. And then expect your page have that content. Thoughtbot have a nice write up about this, please check this <a href="https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara" target="_blank" rel="external">link</a></p>
+<p>Because you use ajax, and expect the page have your ajax return content. But capybara is not waiting for the ajax call. So you need to ask capybara wait for your ajax result by using sleep. You can try sleep 1 or 2 seconds. And then expect your page have that content. Thoughtbot have a nice write up about this, please check this <a href="https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara" target="_blank" rel="external">link</a>.</p>
 <h3 id="4-_Final_Tips:">4. Final Tips:</h3>
 <p>If you dont know what happen in the page, you always can debug with <code>save_and_open_page</code>. I am sure that will save your thousand of times.</p>
 
