@@ -259,7 +259,7 @@
 
 <p> As you can see, the script have two main part, one is the event, the other is the place need to trigger that event. You need to find the keycode (13 for enter) from the key you need to simulate, and the event name(keyup/keydown). And make that field trigger it.<br> <br></p>
 <h4 id="*Dont_have_the_content_for_the_Ajax_call_back">*Dont have the content for the Ajax call back</h4>
-<p>Because you use ajax, and expect the page have your ajax return content. But capybara is not waiting for the ajax call. So you need to ask capybara wait for your ajax result by using sleep. You can try sleep 1 or 2 seconds. And then expect your page have that content. Thoughtbot have a nice write up about this, please check this <a href="https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara" target="_blank" rel="external">link</a>.</p>
+<p>You use ajax, and expect the page have your ajax return content after you click/fire the event. But why the test still fail? Because capybara is not waiting for the ajax call. So you need to ask capybara wait for your ajax result by using sleep. You can try sleep 1 or 2 seconds. And then expect your page have that content. Thoughtbot have a nice write up about this, please check this <a href="https://robots.thoughtbot.com/automatically-wait-for-ajax-with-capybara" target="_blank" rel="external">link</a>.</p>
 <h3 id="4-_Final_Tips:">4. Final Tips:</h3>
 <p>If you dont know what happen in the page, you always can debug with <code>save_and_open_page</code>. I am sure that will save your thousand of times.</p>
 
