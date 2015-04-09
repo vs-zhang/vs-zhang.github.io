@@ -3,17 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>相册 | VZhang&#39;s Blog</title>
+  <title>Rails Engine | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Pulling photos from instagram，loading…">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://vs-zhang.github.io/instagram/index.html">
+  <meta name="description" content="Recently, I build some Rails engines. And I found it’s a good way to organize and share reusable code across a number of applications. 
+Rails Engine is not like Ruby gem. It’s more like a rails app, i">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Rails Engine">
+<meta property="og:url" content="http://vs-zhang.github.io/2015/03/13/Rails-Engine/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description" content="Pulling photos from instagram，loading…">
+<meta property="og:description" content="Recently, I build some Rails engines. And I found it’s a good way to organize and share reusable code across a number of applications. 
+Rails Engine is not like Ruby gem. It’s more like a rails app, i">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Pulling photos from instagram，loading…">
+<meta name="twitter:title" content="Rails Engine">
+<meta name="twitter:description" content="Recently, I build some Rails engines. And I found it’s a good way to organize and share reusable code across a number of applications. 
+Rails Engine is not like Ruby gem. It’s more like a rails app, i">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -170,7 +173,13 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-instagram" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Rails-Engine" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/13/Rails-Engine/" class="article-date">
+  	<time datetime="2015-03-13T15:58:40.000Z" itemprop="datePublished">Mar 13 2015</time>
+</a>
+    </div>
   
   <div class="article-inner">
     
@@ -181,7 +190,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      Rails Engine
     </h1>
   
 
@@ -189,6 +198,10 @@
       
       <div class="article-info">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/engine/">engine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gem/">gem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rails/">rails</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -197,9 +210,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="instagram" data-client-id="74cd1ea9250a44fc901c9497976ca194" data-user-id="1517492709"><br>    <a href="http://instagram.com/vs_zhang" target="_blank" class="open-ins">Pulling photos from instagram，loading…</a><br></div></p>
-<script src="/js/jquery.lazyload.js"></script>
-<script src="/js/instagram.js"></script>
+        <p>Recently, I build some Rails engines. And I found it’s a good way to organize and share reusable code across a number of applications. </p>
+<p>Rails Engine is not like Ruby gem. It’s more like a rails app, it has its own controllers, views and migrations. And basically it has two type of engine, full or mountable. </p>
+<p><a id="more"></a></p>
+<h4 id="Full_vs_Mountable_Engine">Full vs Mountable Engine</h4>
+<p><strong>Full Engine</strong></p>
+<p>With a full engine, the parent application inherits the routes from the engine. It is not necessary to specify anything in the main_app’s routes.rb. Specifying the gem in Gemfile is enough for the parent app to inherit the models, routes etc. The engine routes are specified as:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># my_engine/config/routes.rb </span></div><div class="line"><span class="constant">Rails</span>.application.routes.draw <span class="keyword">do</span> </div><div class="line">  <span class="comment"># whatever </span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p>No namespacing of models, controllers, etc. These are immediately accessible to the parent application.</p>
+<p><strong>Mountable Engine</strong></p>
+<p>The engine’s namespace is isolated by default:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># my_engine/lib/my_engine/engine.rb</span></div><div class="line"><span class="class"><span class="keyword">module</span> <span class="title">MyEngine</span> </span></div><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Engine</span> <span class="inheritance">&lt; <span class="parent">Rails::Engine</span></span> </span></div><div class="line">    isolate_namespace <span class="constant">MyEngine</span> </div><div class="line">  <span class="keyword">end</span> </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p>With a mountable engine, the routes are namespaced and the parent app can bundle this functionality under a single route:</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># my_engine/config/routes.rb </span></div><div class="line"><span class="constant">MyEngine::Engine</span>.routes.draw <span class="keyword">do</span> </div><div class="line">  <span class="comment">#whatever </span></div><div class="line"><span class="keyword">end</span> </div><div class="line"></div><div class="line"><span class="comment"># main_app/config/routes.rb </span></div><div class="line"><span class="constant">ParentApp::Application</span>.routes.draw <span class="keyword">do</span> </div><div class="line">    mount <span class="constant">MyEngine::Engine</span> =&gt; <span class="string">"/engine"</span>, <span class="symbol">:as</span> =&gt; <span class="string">"namespaced"</span> </div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p>Models, controllers, etc are isolated from the parent application.</p>
+<p><span style="color: red">Tips:</span><br><code>--full</code> for the full engine and <code>--mountable</code> for the mountable engine</p>
+<p><br></p>
+
         
       
     </div>
@@ -207,6 +237,25 @@
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2015/03/29/Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Setup Rails Engine with RSpec, Capybara, and FactoryGirl
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/03/04/Capybara-and-Poltergeist/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Capybara and Poltergeist with RSpec</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 

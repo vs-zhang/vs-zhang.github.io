@@ -3,17 +3,23 @@
 <head>
   <meta charset="utf-8">
   
-  <title>相册 | VZhang&#39;s Blog</title>
+  <title>Setup Rails Engine with RSpec, Capybara, and FactoryGirl | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Pulling photos from instagram，loading…">
-<meta property="og:type" content="website">
-<meta property="og:title" content="相册">
-<meta property="og:url" content="http://vs-zhang.github.io/instagram/index.html">
+  <meta name="description" content="How to configure your Rails engine with Rspec, Capybara, and FactoryGirl
+1. Run the follow lines to generate a mountable engine
+1rails plugin new ENGINE_NAME --dummy-path=spec/dummy --skip-test-unit -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Setup Rails Engine with RSpec, Capybara, and FactoryGirl">
+<meta property="og:url" content="http://vs-zhang.github.io/2015/03/29/Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description" content="Pulling photos from instagram，loading…">
+<meta property="og:description" content="How to configure your Rails engine with Rspec, Capybara, and FactoryGirl
+1. Run the follow lines to generate a mountable engine
+1rails plugin new ENGINE_NAME --dummy-path=spec/dummy --skip-test-unit -">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="相册">
-<meta name="twitter:description" content="Pulling photos from instagram，loading…">
+<meta name="twitter:title" content="Setup Rails Engine with RSpec, Capybara, and FactoryGirl">
+<meta name="twitter:description" content="How to configure your Rails engine with Rspec, Capybara, and FactoryGirl
+1. Run the follow lines to generate a mountable engine
+1rails plugin new ENGINE_NAME --dummy-path=spec/dummy --skip-test-unit -">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -170,7 +176,13 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-instagram" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/03/29/Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl/" class="article-date">
+  	<time datetime="2015-03-29T16:47:23.000Z" itemprop="datePublished">Mar 29 2015</time>
+</a>
+    </div>
   
   <div class="article-inner">
     
@@ -181,7 +193,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      相册
+      Setup Rails Engine with RSpec, Capybara, and FactoryGirl
     </h1>
   
 
@@ -189,6 +201,10 @@
       
       <div class="article-info">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capybara/">Capybara</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FactoryGirl/">FactoryGirl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RSpec/">RSpec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/engine/">engine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gem/">gem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rails/">rails</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -197,9 +213,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class="instagram" data-client-id="74cd1ea9250a44fc901c9497976ca194" data-user-id="1517492709"><br>    <a href="http://instagram.com/vs_zhang" target="_blank" class="open-ins">Pulling photos from instagram，loading…</a><br></div></p>
-<script src="/js/jquery.lazyload.js"></script>
-<script src="/js/instagram.js"></script>
+        <h4 id="How_to_configure_your_Rails_engine_with_Rspec,_Capybara,_and_FactoryGirl">How to configure your Rails engine with Rspec, Capybara, and FactoryGirl</h4>
+<h5 id="1-_Run_the_follow_lines_to_generate_a_mountable_engine">1. Run the follow lines to generate a mountable engine</h5>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rails plugin new ENGINE_NAME --dummy-path=spec/dummy --skip-test-unit --mountable</div></pre></td></tr></table></figure>
+
+<p><a id="more"></a></p>
+<h5 id="2-_Add_these_lines_to_the_gemspec_file:">2. Add these lines to the gemspec file:</h5>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">s.add_development_dependency <span class="string">'rspec-rails'</span></div><div class="line">s.add_development_dependency <span class="string">'capybara'</span></div><div class="line">s.add_development_dependency <span class="string">'factory_girl_rails'</span></div></pre></td></tr></table></figure>
+
+<h5 id="3-_Add_this_line_to_your_gemspec_file:">3. Add this line to your gemspec file:</h5>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">s.test_files = <span class="constant">Dir</span>[<span class="string">"spec/**/*"</span>]</div></pre></td></tr></table></figure>
+
+<h5 id="4-_Modify_Rakefile_to_look_like_this:">4. Modify Rakefile to look like this:</h5>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="constant">ENV</span>[<span class="string">'RAILS_ENV'</span>] ||= <span class="string">'test'</span></div><div class="line"><span class="keyword">require</span> <span class="constant">File</span>.expand_path(<span class="string">"../dummy/config/environment.rb"</span>,  __FILE_<span class="number">_</span>)</div><div class="line"><span class="keyword">require</span> <span class="string">'rspec/rails'</span></div><div class="line"><span class="keyword">require</span> <span class="string">'factory_girl_rails'</span></div><div class="line"></div><div class="line"><span class="constant">Rails</span>.backtrace_cleaner.remove_silencers!</div><div class="line"></div><div class="line"><span class="comment"># Load support files</span></div><div class="line"><span class="constant">Dir</span>[<span class="string">"<span class="subst">#{<span class="constant">File</span>.dirname(__FILE_<span class="number">_</span>)}</span>/support/**/*.rb"</span>].each { |f| <span class="keyword">require</span> f }</div><div class="line"></div><div class="line"><span class="constant">RSpec</span>.configure <span class="keyword">do</span> |config|</div><div class="line">  config.mock_with <span class="symbol">:rspec</span></div><div class="line">  config.use_transactional_fixtures = <span class="keyword">true</span></div><div class="line">  config.infer_base_class_for_anonymous_controllers = <span class="keyword">false</span></div><div class="line">  config.order = <span class="string">"random"</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<h5 id="5-_Finally,_add_this_config_to_your_engine_file_(lives_at_lib/my_engine/engine-rb):">5. Finally, add this config to your engine file (lives at lib/my_engine/engine.rb):</h5>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">module</span> <span class="title">MyEngine</span></span></div><div class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Engine</span> <span class="inheritance">&lt; </span>::<span class="title">Rails::Engine</span></span></div><div class="line">    config.generators <span class="keyword">do</span> |g|</div><div class="line">      g.test_framework      <span class="symbol">:rspec</span>,        <span class="symbol">:fixture</span> =&gt; <span class="keyword">false</span></div><div class="line">      g.fixture_replacement <span class="symbol">:factory_girl</span>, <span class="symbol">:dir</span> =&gt; <span class="string">'spec/factories'</span></div><div class="line">      g.assets <span class="keyword">false</span></div><div class="line">      g.helper <span class="keyword">false</span></div><div class="line">    <span class="keyword">end</span></div><div class="line">  <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+
+<p><br></p>
+<p>Here, we’re telling Rails when generating models, controllers, etc. for your engine to use RSpec and FactoryGirl, instead of the default of Test::Unit and fixtures.</p>
+<p>After this, you can start writing specs with FactoryGirl factories and integration specs (inside the spec/features directory) with Capybara. Have fun testing!</p>
+
         
       
     </div>
@@ -207,6 +241,16 @@
   </div>
   
     
+<nav id="article-nav">
+  
+  
+    <a href="/2015/03/13/Rails-Engine/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Rails Engine</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
   
 </article>
 
