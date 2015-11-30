@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Static Images on Hexo | VZhang&#39;s Blog</title>
+  <title>Tag: RSpec | VZhang&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Hexo images hosting
-After using couple month using Hexo, I found it’s fun and easy to use for logging technology/problem solutions. But the image system still not so great like other blog systems. But">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Static Images on Hexo">
-<meta property="og:url" content="http://vs-zhang.github.io/2014/11/12/Static-Image-on-Hexo/">
+  <meta name="description" content="A Developer on the Road">
+<meta property="og:type" content="website">
+<meta property="og:title" content="VZhang's Blog">
+<meta property="og:url" content="http://vs-zhang.github.io/tags/RSpec/">
 <meta property="og:site_name" content="VZhang's Blog">
-<meta property="og:description" content="Hexo images hosting
-After using couple month using Hexo, I found it’s fun and easy to use for logging technology/problem solutions. But the image system still not so great like other blog systems. But">
+<meta property="og:description" content="A Developer on the Road">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Static Images on Hexo">
-<meta name="twitter:description" content="Hexo images hosting
-After using couple month using Hexo, I found it’s fun and easy to use for logging technology/problem solutions. But the image system still not so great like other blog systems. But">
+<meta name="twitter:title" content="VZhang's Blog">
+<meta name="twitter:description" content="A Developer on the Road">
 
   
     <link rel="alternative" href="/atom.xml" title="VZhang&#39;s Blog" type="application/atom+xml">
@@ -174,11 +171,13 @@ After using couple month using Hexo, I found it’s fun and easy to use for logg
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap"><article id="post-Static-Image-on-Hexo" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap">
+  
+    <article id="post-Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2014/11/12/Static-Image-on-Hexo/" class="article-date">
-  	<time datetime="2014-11-12T21:14:47.000Z" itemprop="datePublished">Nov 12 2014</time>
+      <a href="/2015/03/29/Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl/" class="article-date">
+  	<time datetime="2015-03-29T16:47:23.000Z" itemprop="datePublished">Mar 29 2015</time>
 </a>
     </div>
   
@@ -190,105 +189,53 @@ After using couple month using Hexo, I found it’s fun and easy to use for logg
       <header class="article-header">
         
   
-    <h1 class="article-title" itemprop="name">
-      Static Images on Hexo
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/29/Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl/">Setup Rails Engine with RSpec, Capybara, and FactoryGirl</a>
     </h1>
   
 
       </header>
       
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h5 id="Hexo_images_hosting">Hexo images hosting</h5>
-<p>After using couple month using <a href="http://www.hexo.io" target="_blank" rel="external">Hexo</a>, I found it’s fun and easy to use for logging technology/problem solutions. But the image system still not so great like other blog systems. But it’s 2014 now, there’s a lot of alternate ways to find a free image hosting service like <a href="http://www.tumblr.com" target="_blank" rel="external">Tumblr</a>.</p>
-<p>In my blog, I use tumblr as the image hosting system. </p>
-<p><a id="more"></a></p>
-<ol>
-<li>You need to sign up a <a href="https://www.tumblr.com/register" target="_blank" rel="external">Tumblr account</a></li>
-<li>Upload the image using tumblr website or the app in Appstore.</li>
-<li>Found out the url for the image</li>
-<li>In the markdown, use the image syntax like</li>
-</ol>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">![<span class="link_label">some image</span>](<span class="link_url">your image url</span>)</div></pre></td></tr></table></figure>
+        <h4 id="How_to_configure_your_Rails_engine_with_Rspec,_Capybara,_and_FactoryGirl">How to configure your Rails engine with Rspec, Capybara, and FactoryGirl</h4>
+<h5 id="1-_Run_the_follow_lines_to_generate_a_mountable_engine">1. Run the follow lines to generate a mountable engine</h5>
+<figure class="highlight zsh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rails plugin new ENGINE_NAME --dummy-path=spec/dummy --skip-test-unit --mountable</div></pre></td></tr></table></figure>
 
-<p>And that’s it. You have your own image hosting.</p>
+<p>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Capybara/">Capybara</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/FactoryGirl/">FactoryGirl</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RSpec/">RSpec</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/engine/">engine</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/gem/">gem</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/rails/">rails</a></li></ul>
+	</div>
 
       
+
+      
+        <p class="article-more-link">
+          <a  href="/2015/03/29/Setup-Rails-Engine-with-RSpec-Capybara-and-FactoryGirl/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
     </div>
     
   </div>
   
-    
-<nav id="article-nav">
-  
-    <a href="/2014/11/30/TDD-Data-with-FactoryGirl/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Data Association with FactoryGirl
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/11/10/Stations-tv/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Stations.tv</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
-
-  
 </article>
 
 
-<div class="share">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到：</span>
-		<a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
 
 
 
 
 
-<section id="comments">
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'tvzhang'; // required: replace example with your forum shortname
-
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</section>
-
+  
+  
 </div>
       <footer id="footer">
   <div class="outer">
@@ -314,9 +261,9 @@ After using couple month using Hexo, I found it’s fun and easy to use for logg
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false
 	}
